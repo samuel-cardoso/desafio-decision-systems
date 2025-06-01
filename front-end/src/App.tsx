@@ -1,19 +1,16 @@
-import { Box, Typography } from "@mui/material";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import CreateUser from './(pages)/CreateUser';
+// import EditUser from './(pages)/EditUser';
 
 export default function App() {
   return (
-    <Box
-      sx={{
-        width: "100%",
-        height: "90vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Typography variant="h1" sx={{ color: "blue", fontWeight: "bold" }}>
-        Teste de Front-end.
-      </Typography>
-    </Box>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/usuario/criar" />} />
+        <Route path="/usuario/criar" element={<CreateUser />} />
+        {/* <Route path="/usuario/:id" element={<EditUser />} /> */}
+        <Route path="*" element={<div>Página não encontrada</div>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
