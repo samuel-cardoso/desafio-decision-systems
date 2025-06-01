@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Alert, Button, InputAdornment, IconButton, TextField } from '@mui/material';
-import {Visibility, VisibilityOff } from '@mui/icons-material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Form, Field } from 'react-final-form';
 import { registerSchemaForm } from '../lib/yup/schemas/registerSchemaForm';
-import { createValidator } from '../utils/validateYup';
+import { createValidator } from '../utils/createValidator';
 import FormWrapper from '../components/formWrapper';
 
 export default function CreateUser() {
@@ -18,7 +18,7 @@ export default function CreateUser() {
     setLoading(true);
     setAlertMessage('');
     try {
-      console.log('Dados validados:', values);
+      console.log('Dados validados:', values); // Deletar depois.
       setAlertMessage('Usuário cadastrado com sucesso! Em 3 segundos você será redirecionado para a página de Edição.');
       setTypeMessage('success');
     } catch {
@@ -46,8 +46,6 @@ export default function CreateUser() {
                 <TextField {...input} label="Nome completo" fullWidth margin="normal" error={meta.touched && Boolean(meta.error)} helperText={meta.touched && meta.error} />
               )}
             </Field>
-
-            
 
             <Field name="password">
               {({ input, meta }) => (
@@ -89,14 +87,7 @@ export default function CreateUser() {
 
             <Field name="motherName">
               {({ input, meta }) => (
-                <TextField
-                  {...input}
-                  label="Nome da mãe"
-                  fullWidth
-                  margin="normal"
-                  error={meta.touched && Boolean(meta.error)}
-                  helperText={meta.touched && meta.error}
-                />
+                <TextField {...input} label="Nome da mãe" fullWidth margin="normal" error={meta.touched && Boolean(meta.error)} helperText={meta.touched && meta.error} />
               )}
             </Field>
 

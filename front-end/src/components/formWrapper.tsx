@@ -33,7 +33,7 @@ export default function FormWrapper({ title, subtitle, children }: FormWrapperPr
           <Box
             sx={{
               background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              padding: { xs: 2, sm: 4, md: 5 },
+              padding: 4,
               textAlign: 'center',
               color: 'white',
             }}
@@ -43,8 +43,8 @@ export default function FormWrapper({ title, subtitle, children }: FormWrapperPr
                 width: { xs: 60, sm: 70, md: 80 },
                 height: { xs: 60, sm: 70, md: 80 },
                 borderRadius: '50%',
-                background: 'rgba(255, 255, 255, 0.2)',
-                display: 'flex',
+                background: 'rgba(255,255, 255, 0.2)',
+                display: { xs: 'none', sm: 'flex' },
                 alignItems: 'center',
                 justifyContent: 'center',
                 margin: { xs: '0 auto 12px', sm: '0 auto 14px', md: '0 auto 16px' },
@@ -66,7 +66,7 @@ export default function FormWrapper({ title, subtitle, children }: FormWrapperPr
               {title}
             </Typography>
             {subtitle && (
-              <Typography variant="body1" sx={{ opacity: 0.9 }}>
+              <Typography variant="body1" sx={{ display: { xs: 'none', sm: 'block' }, opacity: 0.9 }}>
                 {subtitle}
               </Typography>
             )}
