@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import CreateUser from './(pages)/CreateUser';
-import EditUser from './(pages)/EditUser';
+import CreateUser from './(pages)/create-user';
+import EditUser from './(pages)/edit-user';
 
 export default function App() {
   return (

@@ -2,9 +2,9 @@ import { useState } from 'react'; // Importar useEffect para usar com o back-end
 // import { useParams, useNavigate } from 'react-router-dom'; // Usar com o back-end real.
 import { Alert, Button, TextField, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Snackbar } from '@mui/material';
 import { Form, Field } from 'react-final-form';
-import { editSchemaForm } from '../lib/yup/schemas/editSchemaForm';
-import { createValidator } from '../utils/createValidator';
-import FormWrapper from '../components/formWrapper';
+import { editSchemaForm } from '../lib/yup/schemas/edit-schema-form';
+import { createValidator } from '../utils/create-validator';
+import FormWrapper from '../components/form-wrapper';
 
 export default function EditUser() {
   //   const { id } = useParams(); // Usar com o back-end real.

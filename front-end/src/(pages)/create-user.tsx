@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { Alert, Button, InputAdornment, IconButton, TextField } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Form, Field } from 'react-final-form';
-import { registerSchemaForm } from '../lib/yup/schemas/registerSchemaForm';
-import { createValidator } from '../utils/createValidator';
-import FormWrapper from '../components/formWrapper';
+import { registerSchemaForm } from '../lib/yup/schemas/register-schema-form';
+import { createValidator } from '../utils/create-validator';
+import FormWrapper from '../components/form-wrapper';
 
 export default function CreateUser() {
   const [showPassword, setShowPassword] = useState(false);
