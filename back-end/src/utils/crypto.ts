@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import CryptoJS from "crypto-js";
 
-const SECRET_KEY = process.env.SECRET_KEY || "default"; // ajustar isso.
+const SECRET_KEY = process.env.SECRET_KEY || "default secret key";
 
 export async function hashPassword(password: string): Promise<string> {
   return await bcrypt.hash(password, 10);

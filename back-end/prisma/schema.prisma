@@ -18,8 +18,8 @@ datasource db {
 model users {
   id          String   @id @default(uuid())
   name        String
-  password    String   // Hash (bcrypt)
+  password    String  
   birth_data   DateTime
-  mother_name  String   // Criptografado
+  mother_name  String   
   created_at   DateTime @default(now())
 }

@@ -1,3 +1,12 @@
+version: '3.9'
+
+# 🚨 Atenção:
+# Este projeto foi configurado como um desafio técnico, por isso valores sensíveis como senhas e strings de conexão estão visíveis diretamente neste arquivo para facilitar a execução com:
+#
+#     docker compose up -d
+#
+# Em ambientes reais, essas informações devem ser extraídas de arquivos .env com variáveis protegidas, usando o recurso `env_file` ou `secrets`.
+
 services:
   frontend:
     build:
@@ -7,6 +16,19 @@ services:
       - "3000:80"
     depends_on:
       - backend
+
+  backend:
+    build:
+      context: ./back-end
+    container_name: backend
+    restart: always
+    ports:
+      - "4000:4000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/users_db
+      - SECRET_KEY=s4muel@2025
+    depends_on:
+      - db
 
   db:
     image: postgres:15
@@ -21,16 +43,17 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  backend:
-    build:
-      context: ./back-end
-    container_name: backend
-    restart: always
+  prisma-studio:
+    image: node:18
+    container_name: prisma-studio
+    working_dir: /app
+    volumes:
+      - ./back-end:/app
+    command: sh -c "npm install && npx prisma generate && npx prisma studio --port 5555 --browser none"
     ports:
-      - "4000:4000"
+      - "5555:5555"
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/users_db
-      - SECRET_KEY=s4muel@2025
     depends_on:
       - db
 

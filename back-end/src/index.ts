@@ -22,7 +22,7 @@ async function startServer() {
   await server.start();
   server.applyMiddleware({ app: app as any });
 
-  const PORT = process.env.PORT || 4000; // Mudar porta
+  const PORT = process.env.PORT || 4000;
   app.listen(PORT, () => {
     console.log(
       `🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`
