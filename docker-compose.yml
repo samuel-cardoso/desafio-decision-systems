@@ -3,7 +3,7 @@ version: '3.9'
 # 🚨 Atenção:
 # Este projeto foi configurado como um desafio técnico, por isso valores sensíveis como senhas e strings de conexão estão visíveis diretamente neste arquivo para facilitar a execução com:
 #
-#     docker compose up -d
+#     docker compose up --build -d
 #
 # Em ambientes reais, essas informações devem ser extraídas de arquivos .env com variáveis protegidas, usando o recurso `env_file` ou `secrets`.
 
