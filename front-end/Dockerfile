@@ -1,27 +1,18 @@
-# Etapa de build
 FROM node:18 AS builder
 
 WORKDIR /app
-
 COPY package*.json ./
-COPY tsconfig.json ./
-COPY prisma ./prisma
 RUN npm install
-
-RUN npx prisma generate  # <-- Gera o client
-
 COPY . .
 RUN npm run build
 
-# Etapa final
-FROM node:18
+FROM nginx:alpine
 
-WORKDIR /app
+RUN rm -rf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d
 
-COPY --from=builder /app /app
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-RUN npm install --omit=dev
+EXPOSE 80
 
-EXPOSE 4000
-
-CMD ["node", "dist/index.js"]
+CMD ["nginx", "-g", "daemon off;"]

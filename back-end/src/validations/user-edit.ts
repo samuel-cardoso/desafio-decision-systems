@@ -1,7 +1,5 @@
 import * as yup from "yup";
 
-// Verificar se deve ser assim mesmo, pois o nome da mãe vai estar criptografado no banco de dados e o a senha com hash....
-
 export const editSchema = yup.object({
   name: yup
     .string()

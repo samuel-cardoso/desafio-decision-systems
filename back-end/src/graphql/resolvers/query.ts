@@ -14,5 +14,3 @@ export const Query = {
     return user ? transformUser(user) : null;
   },
 };
-
-// ⚠️ Lembrando que como motherName está criptografado no banco, ele vai vir criptografado aqui — e se quiser exibir descriptografado, pode usar decrypt() aqui também.
